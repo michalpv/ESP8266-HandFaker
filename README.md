@@ -1,1 +1,6 @@
 # ESP8266-HandFaker
+This project aims to achieve 2 major goals: Listen for deauthentication/disassociation packets over WiFi, and respond to these frames with 802.11 handshakes that have certain fields randomized (specifically those needed for authentication; MIC, WPA Key Data, etc.).
+
+With the popularity and availability of tools such as aircrack-ng, it is becoming easier for people to attempt noisy WiFi attacks which can ultimately become an annoyance. Fortunately, WiFi hacking usually involves the attacker sending fraudulent deauthentication frames which can be detected, logged, and answered. Using an ESP8266 WiFi module, it is possible to listen for such unencrypted packets and purposefully send away false handshakes that will throw an attacker off their feet. This project is simply a fun PoC, and with the release of the 802.11w standard, updated WiFi devices can use protected management frames that cannot be easily mimicked by a third-party.
+
+The Arduino IDE is the main development environment for this project, and I intentionally use the outdated version 2.0.0 of the ESP8266 package since other releases will not function (Newer versions have removed features needed for this project to work. Funny how malicious appications often use the same techniques and features as their opposing ethical counterparts).
